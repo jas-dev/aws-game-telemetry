@@ -44,4 +44,4 @@ Any EC2 assets required exist in the appropriate security zones, partitioned by 
 
 CloudWatch and Simple Notification Service (SNS) for monitoring and alerting.
 
-![Diagram](https://drive.google.com/file/d/1wm48wkSsKbmBpA-fWdPE_LPLwe4fvz2U/view?usp=sharing)
+![Diagram]()
