@@ -1,6 +1,6 @@
 # aws-game-telemetry
 AWS architecture for ingestion of GDPR game telemetry data. 
-
+![Preview1](./gdpr-aws-telemetry-gov.jpg)
 # AWS Data Ingestion and Processing Solution
 
 ## Overview
