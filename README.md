@@ -7,9 +7,9 @@ AWS architecture for ingestion of GDPR game telemetry data.
 
 This solution is designed to handle data ingestion through an API Gateway, protected by a Web Application Firewall to mitigate common web app attacks, exploits, and bots. The architecture is serverless and event-driven. Client requests are authenticated via Lambda authorizer against IAM, with authorization using API keys. Application configuration data stored and API keys for registered apps are kept in DynamoDB. 
 
-I was inspired to adapt this solution as a project after being asked about it during an interview. I was asked through a governance and security lens, and it got me thinking deeply about the architecture as a whole; I did some research and found [AWS guidance](https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/) and templates for this exact project. 
+I was inspired to adapt this reference architecture solution as a project after being asked about it during an interview. I was asked through a governance and security lens, and it got me thinking deeply about the architecture as a whole; I did some research and found [AWS guidance](https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/) and templates for this exact project. 
 
-The architecture diagram you see here represents my desire to shift the focus slighly by abstracting away from the code enough to incorporate GRC and Security Architecture, while still describing the interactions and considerations between services as whole. With such a cool serverless event-driven solution, zooming out like this gives is a great opportunity to demonstrate the importance and benefits of building GRC and Security best practices into your foundations. 
+The architecture diagram you see here represents my desire to overlay GRC and Security Architecture, while still describing the interactions and considerations between services as whole. Zooming out like this gives is a great opportunity to demonstrate the importance and benefits of building GRC and Security best practices into your foundations. 
 
 ## Nice options
 Integrating Kinesis with the game client allows authentication and authorization using a Cognito Identity Pool to provide temporary credentials for API access, and no longer requires the API gateway solution.
@@ -23,7 +23,7 @@ Consumption and analysis can be performed natively using Athena and QuickSight o
 
 ## Governance
 
-Multi-account management and orchestration are achieved using AWS Control Tower and Organizations, using frameworks of your choice such as the well-architected framework, CIS controls, and GDPR and utilizing policy guardrails organization wide from a central place. Security Hub and Config are enabled in the organization to facilitate security analysis and compliance with best practices and standards. Accounts are segregated by Organizational Unit (OU), and policies are applied at the OU level where possible, especially Service Control Policies (SCPs). The GDPR OU contains telemetry accounts for each business unit, limited to the EU region.
+Multi-account management and orchestration are achieved using AWS Control Tower and Organizations. Security Hub and Config are enabled in the organization to facilitate security posture monitoring and enforcement of CIS benchmarks and GDPR control standards. Accounts are segregated by Organizational Unit (OU), and policies are applied at the OU level using Service Control Policies (SCPs) to provide guardrails such as limiting users, groups, and roles permissions through 'deny' policies. The GDPR OU contains telemetry accounts for each business unit, limited to the EU region.
 
 ## IAM 
 
